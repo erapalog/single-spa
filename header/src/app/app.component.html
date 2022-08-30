@@ -1,0 +1,80 @@
+
+  <!--<nav class="navbar bg-light navbar-expand-lg bg-light" *ngIf="login">
+    <div class="container-fluid">
+      <a class="navbar-brand">Demo SPA</a>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="/">Inicio</a>
+          </li>
+      
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/seguridad">Seguridad</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"  role="button" href="" (click)="$event.preventDefault()">Dropdown</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </li>
+         
+          <li class="nav-item">
+            <a class="nav-link">Ventas</a>
+          </li>
+        </ul>
+    
+      </div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>--> 
+  <div  *ngIf="login">
+    <div >
+      <nav class="navbar" >
+        <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs justify-content-left">
+          <li [ngbNavItem]="1">
+            <a ngbNavLink  routerLink="/">Inicio</a>
+       
+          </li>
+          <!--<li [ngbNavItem]="2">
+            <a ngbNavLink routerLink="/">Seguridad</a>
+           
+          </li>--> 
+          <li ngbDropdown class="nav-item">
+            <a href (click)="false" class="nav-link" ngbDropdownToggle>Seguridad</a>
+            <div ngbDropdownMenu>
+              <button ngbDropdownItem  (click)="goRoles()">Roles</button>
+              <button ngbDropdownItem  (click)="goUser()">Usuario</button>
+              <button ngbDropdownItem (click)="personas()">Personal</button>
+              <div class="dropdown-divider"></div>
+              <button ngbDropdownItem >Separated link</button>
+            </div>
+          </li>
+          <li ngbNavItem class="ms-auto">
+            <a ngbNavLink  routerLink="/personal">React App</a>
+          
+          </li>
+      
+          
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="value" id="value" [(ngModel)]="value" (keydown)="SearchGlobal(value)">
+          <button class="btn btn-outline-success" type="button" (click)="SearchGlobal(value)">Search</button>
+        </form>
+
+        <!--<extra-component></extra-component>-->
+      </nav>
+    </div>
+  </div>
+ 
+
+
+
+<router-outlet></router-outlet>
